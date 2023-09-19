@@ -13,7 +13,7 @@
 
     <!--== Google Fonts ==-->
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700%7CPoppins:400,400i,500,600&amp;display=swap" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!-- build:css assets/css/app.min.css -->
     <!--== Leaflet Min CSS ==-->
     <link href="assets/css/leaflet.min.css" rel="stylesheet" />
@@ -37,65 +37,211 @@
     <!--== Main Style CSS ==-->
     <link href="assets/css/style.css" rel="stylesheet" />
     <!--== Helper Min CSS ==-->
-    <link href="assets/css/helper.min.css" rel="stylesheet" />
+    <style>
+        /* Estilos para as imagens flutuantes */
+        .floating-images {
+            position: absolute;
+            top: 50%; /* Ajuste conforme necessário */
+            left: 70%; /* Ajuste a posição horizontal conforme necessário */
+            transform: translate(-50%, -50%);
+            z-index: 999; /* Certifique-se de que as imagens estejam acima do banner */
+            display: flex; /* Adicione display flex para alinhar as imagens horizontalmente */
+            animation: floatAnimation 5s ease-in-out infinite; /* Adiciona uma animação */
+        }
+
+        .floating-images img {
+            width: auto; /* Ajuste o tamanho conforme necessário */
+            height: auto; /* Ajuste o tamanho conforme necessário */
+            margin: 0 10px; /* Espaçamento horizontal entre as imagens */
+        }
+
+        /* Definição da animação */
+        @keyframes floatAnimation {
+            0% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-20px);
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+        }
+    </style>
+    <style>
+        /* Estilos para a imagem do carro */
+        .call-to-action-image-area {
+            position: relative;
+        }
+
+        .call-to-action-image-area img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Estilos para a animação de brilho */
+        .shine {
+            position: absolute;
+            top: 0;
+            left: -100%; /* Começa fora da imagem à esquerda */
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+            animation: shineAnimation 5s linear infinite; /* Define a animação para o brilho (agora 5 segundos) */
+        }
+
+        /* Definição da animação de brilho */
+        @keyframes shineAnimation {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%; /* Move o brilho para a direita */
+            }
+        }
+    </style>
+     <style>
+        /* Estilos para o contêiner da imagem */
+        .flash-deals-thumb {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Estilos para a imagem dos pneus */
+        .flash-deals-thumb img.pneus {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Estilos para a imagem da roda */
+        .flash-deals-thumb img.roda {
+            position: absolute;
+            bottom: 20px; /* Ajuste a distância do fundo conforme necessário */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            width: 300px; /* Largura desejada para a roda */
+            height: auto;
+            animation: spin 4s linear infinite; /* Adicione a animação de rotação */
+        }
+
+        /* Definição da animação de rotação */
+        @keyframes spin {
+            0% {
+                transform: translateX(-50%) rotate(0deg); /* Começa a rotação de 0 graus */
+            }
+            100% {
+                transform: translateX(-50%) rotate(360deg); /* Completa uma rotação completa (360 graus) */
+            }
+        }
+    </style>
+    <style>
+/* Estilos para a animação de luz */
+.light {
+    position: absolute;
+    width: 100px; /* Aumente o tamanho horizontal */
+    height: 100px; /* Aumente o tamanho vertical */
+    background-color: rgba(255, 255, 255, 0.5); /* Cor da luz */
+    border-radius: 50%;
+    opacity: 0;
+    animation: lightAnimation 2s infinite alternate; /* Animação de luz */
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5); /* Adicione uma sombra para tornar a luz mais suave */
+}
+
+/* Animação de luz */
+@keyframes lightAnimation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+    </style>
     <!-- endbuild -->
+	<!-- Inclua o jQuery (se já não estiver incluído em seu projeto) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Inclua o Slick Carousel CSS e JS -->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 </head>
 
 <body>
-
-    <!--== Start Header Area ==-->
-    <header class="header-area">
-        <div class="container container-wide">
-            <div class="row align-items-center">
-                <div class="col-sm-4 col-lg-2">
-                    <div class="site-logo text-center text-sm-start">
-                        <a href="index.html"><img src="assets/img/logo.png" alt="Logo" /></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-7 d-none d-lg-block">
-                    <div class="site-navigation">
-                        <ul class="main-menu nav">
-                            <li class="has-submenu"><a href="index.html">Início</a></li>
-                            <li><a href="#">Empresa</a></li></li>
-                            <li class="has-submenu"><a href="#">Produtos</a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">Linha Leve</a></li>
-                                    <li><a href="#">Linha Pesada</a></li>
-                                    <li><a href="#">Linha Techline</a></li>
-                                    <li><a href="#">Linha Gear</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Fornecedor</a></li>
-                            <li><a href="#">Atendimento</a></li>
-                            <li><a href="#">Contato</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-sm-8 col-lg-3">
-                    <div class="site-action d-flex justify-content-center justify-content-sm-end align-items-center">
-                        <ul class="login-reg-nav nav">
-                            <li><a href="#">Catálogo</a></li>
-                            <li><a href="#">Orçamento</a></li>
-                        </ul>
-
-                        
-
-                        <div class="responsive-menu d-lg-none">
-                            <button class="btn-menu">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                        </div>
-                    </div>
+<!--== Start Header Area ==-->
+<header class="header-area">
+    <div class="container container-wide">
+        <div class="row align-items-center">
+            <div class="col-sm-4 col-lg-2">
+                <div class="site-logo text-center text-sm-start">
+                    <a href="index.html"><img src="assets/img/logo.png" alt="Logo" /></a>
                 </div>
             </div>
+
+            <div class="col-lg-7 d-none d-lg-block">
+                <div class="site-navigation">
+                    <ul class="main-menu nav">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="#">Empresa</a></li>
+                        <li class="has-submenu">
+                            <a href="#">Produtos</a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Linha Leve</a></li>
+                                <li><a href="#">Linha Pesada</a></li>
+                                <li><a href="#">Linha Techline</a></li>
+                                <li><a href="#">Linha Gear</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Fornecedor</a></li>
+                        <li><a href="#">Atendimento</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+
+<div class="col-sm-8 col-lg-3 red-bg">
+    <div class="checkered-flag">
+        <div class="stripe white-bg"></div>
+        <div class="stripe black-bg"></div>
+        <div class="stripe white-bg"></div>
+        <div class="stripe black-bg"></div>
+        <div class="stripe white-bg"></div>
+    </div>
+    <div class="site-action d-flex justify-content-center justify-content-sm-end align-items-center">
+        <ul class="login-reg-nav nav">
+            <li><a href="#" class="white-text">Catálogo</a></li>
+            <li><a href="#" class="white-text">Orçamento</a></li>
+        </ul>
+
+        <div class="responsive-menu d-lg-none">
+            <button class="btn-menu">
+                <i class="fa fa-bars"></i>
+            </button>
         </div>
-    </header>
+    </div>
+</div>
+
+
+
+
+
+        </div>
+    </div>
+    
+    <!-- Marca vermelha vertical à direita -->
+ 
+</header>
+<!--== End Header Area ==-->
+
     <!--== End Header Area ==-->
 
     <!--== Start Slider Area Wrapper ==-->
+    <!-- Banner Principal -->
     <div class="slider-area-wrapper">
         <div class="slider-content-active">
             <div class="slider-slide-item bg-img" data-bg="assets/img/slider/slider-1.jpg">
@@ -107,29 +253,22 @@
                                     <h3>Movendo o mundo com qualidade e confiança.</h3>
                                     <h2>Para cada estrada, <br> o óleo ideal.</h2>
                                     <a class="btn btn-white" href="#">Contato</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-slide-item bg-img" data-bg="assets/img/slider/slider-2.jpg">
-                <div class="container container-wide h-100">
-                    <div class="row align-items-center h-100">
-                        <div class="col-12">
-                            <div class="slide-content">
-                                <div class="slide-content-inner">
-                                    <h3>Performance Máxima,</h3>
-                                    <h2> Cuidado Supremo.</h2>
-                                    <a class="btn btn-white" href="#">Contato</a>
-                                </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+			
+            <!-- Adicione mais slides aqui, se necessário -->
         </div>
+    </div>
+    <!-- Fim do Banner Principal -->
+
+    <!-- Imagens flutuantes -->
+    <div class="floating-images">
+        <img src="assets/img/banner/produto1.png" alt="Imagem 1">
+        <img src="assets/img/banner/produto2.png" alt="Imagem 2">
     </div>
     <!--== End Slider Area Wrapper ==-->
 
@@ -223,6 +362,7 @@
         </div>
     </div>
 </div>
+
 
 
             <div class="row">
@@ -401,15 +541,17 @@
             </div>
         </div>
 
-        <div class="call-to-action-image-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <img src="assets/img/bg/bg-car.png" alt="Car" />
-                    </div>
+    <div class="call-to-action-image-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <img src="assets/img/bg/bg-car.png" alt="Car" />
+                    <!-- Adicione a animação de brilho como um elemento irmão da imagem -->
+                    <div class="shine"></div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!--== End Call to action Wrapper ==-->
 
@@ -786,11 +928,15 @@
             <div class="row">
                 <div class="col-xl-11 m-auto">
                     <div class="row align-items-center">
-                        <div class="col-md-5 col-lg-6">
-                            <div class="flash-deals-thumb text-center text-md-start">
-                                <img src="assets/img/extra/wheels.png" alt="Deals" />
-                            </div>
-                        </div>
+    <div class="col-md-5 col-lg-6">
+        <div class="flash-deals-thumb text-center text-md-start">
+            <!-- Imagem dos pneus -->
+            <img class="pneus" src="assets/img/extra/wheels.png" alt="Pneus" />
+
+            <!-- Imagem da roda com animação de rotação -->
+            <img class="roda" src="assets/img/extra/roda.png" alt="Roda Giratória" />
+        </div>
+    </div>
 
                         <div class="col-md-7 col-lg-6 text-center">
                             <div class="flash-deals-content">
@@ -814,9 +960,9 @@
                 <div class="row">
                     <div class="col-lg-8 col-xl-5 m-auto">
                         <div class="newsletter-content text-center">
-<h4>FIQUE CONECTADO</h4>
-<h2>Inscrição Exclusiva</h2>
-<p>Inscreva-se para receber informações sobre nossos produtos e novidades da loja.</p>
+                            <h4>FIQUE CONECTADO</h4>
+                            <h2>Inscrição Exclusiva</h2>
+                            <p>Inscreva-se para receber informações sobre nossos produtos e novidades da loja.</p>
 
                             <div class="newsletter-form-wrap">
                                 <form action="#" method="post">
@@ -831,6 +977,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- Luzes -->
+        <div class="light" style="left: 29%; top: 25%;"></div> <!-- Ajuste a posição conforme necessário -->
+        <div class="light" style="right: 29%; top: 25%;"></div> <!-- Ajuste a posição conforme necessário -->
     </div>
     <!--== End Newsletter Area ==-->
 
@@ -840,31 +990,32 @@
             <div class="row">
                 <div class="col-12">
                     <div class="brand-logo-content">
-                        <div class="brand-logo-item">
-                            <a href="#"><img src="assets/img/brand-logo/brand-1.png" alt="Logo" /></a>
-                        </div>
+<div class="brand-logo-item fade-in">
+    <a href="#"><img src="assets/img/brand-logo/brand-1.png" alt="Logo" /></a>
+</div>
 
-                        <div class="brand-logo-item">
+
+                        <div class="brand-logo-item fade-in">
                             <a href="#"><img src="assets/img/brand-logo/brand-2.png" alt="Logo" /></a>
                         </div>
 
-                        <div class="brand-logo-item">
+                        <div class="brand-logo-item fade-in">
                             <a href="#"><img src="assets/img/brand-logo/brand-3.png" alt="Logo" /></a>
                         </div>
 
-                        <div class="brand-logo-item">
+                        <div class="brand-logo-item fade-in">
                             <a href="#"><img src="assets/img/brand-logo/brand-4.png" alt="Logo" /></a>
                         </div>
 
-                        <div class="brand-logo-item">
+                        <div class="brand-logo-item fade-in">
                             <a href="#"><img src="assets/img/brand-logo/brand-5.png" alt="Logo" /></a>
                         </div>
 
-                        <div class="brand-logo-item">
+                        <div class="brand-logo-item fade-in">
                             <a href="#"><img src="assets/img/brand-logo/brand-3.png" alt="Logo" /></a>
                         </div>
 
-                        <div class="brand-logo-item">
+                        <div class="brand-logo-item fade-in">
                             <a href="#"><img src="assets/img/brand-logo/brand-1.png" alt="Logo" /></a>
                         </div>
                     </div>
@@ -990,6 +1141,64 @@
         </div>
     </aside>
     <!--== End Responsive Menu Wrapper ==-->
+	<!-- Adicione jQuery à sua página, se ainda não estiver incluído -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var images = document.querySelectorAll(".animated-image");
+
+            images.forEach(function(image, index) {
+                // Aplique um pequeno atraso para que as imagens apareçam em momentos diferentes
+                setTimeout(function() {
+                    image.style.right = "0"; // Move a imagem para a posição inicial (visível)
+                }, 500 * (index + 1)); // Ajuste o atraso conforme necessário
+            });
+        });
+    </script>
+<script>
+$(document).ready(function() {
+  // Função para verificar se um elemento está visível na tela
+  function isElementInViewport(elem) {
+    var rect = elem.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  // Adicione a classe .show aos elementos quando estiverem visíveis
+  $('.brand-logo-item').each(function() {
+    if (isElementInViewport(this)) {
+      $(this).addClass('show');
+    }
+  });
+
+  // Adicione a classe .show aos elementos quando eles entrarem na tela durante o rolamento
+  $(window).scroll(function() {
+    $('.brand-logo-item').each(function() {
+      if (isElementInViewport(this)) {
+        $(this).addClass('show');
+      }
+    });
+  });
+});
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.product-carousel').slick({
+            infinite: true, // Loop infinito
+            slidesToShow: 3, // Número de produtos visíveis de uma vez
+            slidesToScroll: 1, // Número de produtos para rolar a cada vez
+            autoplay: true, // Ativar reprodução automática
+            autoplaySpeed: 2000, // Velocidade da reprodução automática em milissegundos
+            prevArrow: '<button class="slick-prev">Previous</button>', // Personalize o botão "Anterior"
+            nextArrow: '<button class="slick-next">Next</button>' // Personalize o botão "Próximo"
+        });
+    });
+</script>
 
 
     <!--=======================Javascript============================-->

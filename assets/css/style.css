@@ -773,11 +773,47 @@ blockquote-title, .blockquote-title {
   }
 }
 
+
+/* CSS para animação de fade-in */
+.brand-logo-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.brand-logo-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* CSS para a animação de fade-in */
+/* CSS para a animação de fade-in */
+.fade-in {
+  opacity: 0; /* Comece com a opacidade zero (invisível) */
+  transform: translateY(0.5rem); /* Desloque o elemento para baixo um pouco */
+  transition: opacity 2s ease-in-out, transform 2s ease-in-out; /* Duração de 2 segundos */
+}
+
+/* CSS para as logos lado a lado */
+.brand-logo-content {
+  display: flex; /* Use flexbox para colocar as logos em uma linha horizontal */
+  align-items: center; /* Centralize verticalmente as logos */
+  justify-content: space-between; /* Distribua o espaço entre as logos */
+}
+
+.brand-logo-item {
+  flex: 0 0 auto; /* Evite que as logos se estiquem */
+}
+
+
 /*=============================
 04. Header Area Style CSS
 ==============================*/
+
+
 .header-area {
   padding: 30px 0;
+  background-color: black;
+  
 }
 @media only screen and (max-width: 767.98px) {
   .header-area {
@@ -795,8 +831,60 @@ blockquote-title, .blockquote-title {
 .header-area .nav li:last-child {
   margin-right: 0;
 }
+/* Estilo para a bandeira quadriculada */
+.checkered-flag {
+  position: absolute;
+  top: 0;
+  left: 0; /* Ajuste o valor de left para alinhar a bandeira */
+  width: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para a parte com background vermelho */
+.red-bg {
+  background-color: red;
+  padding: 20px;
+  position: relative;
+}
+
+/* Estilo para a bandeira quadriculada */
+.checkered-flag {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para as linhas pretas e brancas */
+.stripe {
+  width: 100%;
+  height: 20%;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.black-bg {
+  background-color: black;
+}
+
+
+
+/* Estilo para o texto branco */
+.white-text {
+  color: white !important; /* Cor do texto branco */
+  font-size: 18px; /* Tamanho da fonte */
+  text-transform: uppercase; /* Texto em maiúsculas */
+}
+
 .header-area .nav li a {
-  color: #1b1b1c;
+  color: #ffffff;
   display: block;
   font-size: 15px;
   font-weight: 600;
@@ -977,6 +1065,9 @@ blockquote-title, .blockquote-title {
     margin-left: 20px;
   }
 }
+
+/* Estilo para a barra de menu */
+
 
 /*=============================
 4.1 - Site Navigation Style
@@ -3823,6 +3914,7 @@ Start Comment Area Wrapper
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
+
 @media only screen and (max-width: 575.98px) {
   .login-form-style form .login-toggle-btn a,
 .register-form-style form .login-toggle-btn a {
