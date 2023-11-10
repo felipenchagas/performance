@@ -195,26 +195,52 @@
                 </div>
             </div>
 
-            <div class="col-lg-7 d-none d-lg-block">
-                <div class="site-navigation">
-                    <ul class="main-menu nav">
-                        <li><a href="https://performancecwb.com.br">Início</a></li>
-                        <li><a href="performance-empresa-quem-somos">Empresa</a></li>
-                        <li class="has-submenu">
-                            <a href="#">Produtos</a>
-                            <ul class="sub-menu">
-                                <li><a href="prod/oleo-para-carros-curitiba">Óleo motor / Carros</a></li>
-                                <li><a href="prod/fluido-de-freio">Fluidos de Freio</a></li>
-                                <li><a href="prod/tratamento-motor-lubrificantes">Tratamento para Motor</a></li>
-                                <li><a href="prod/fluido-de-transmissao-curitiba">Fluido de transmissão</a></li><li><a href="prod/aditivos">Aditivos</a></li><li><a href="prod/desengripantes-fluidos-limpa-contato">Outros produtos</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Fornecedor</a></li>
-                        <li><a href="atendimento">Atendimento</a></li>
-                        <li><a href="contato">Contato</a></li>
-                    </ul>
-                </div>
-            </div>
+    <div class="col-lg-7 d-none d-lg-block">
+    <div class="site-navigation" style="position: relative;">
+        <ul class="main-menu nav">
+            <li><a href="https://performancecwb.com.br">Início</a></li>
+            <li><a href="#">Empresa</a></li>
+<li class="has-submenu" style="position: relative;">
+    <a href="#">Produtos</a>
+    <ul class="sub-menu" style="display: none; position: absolute; top: 100%; left: 0; background-color: #f9f9f9; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); margin: 0; padding: 0;">
+        <li class="has-submenu" style="position: relative;">
+            <a href="#">Óleo motor</a>
+            <ul class="sub-menu" style="display: none; position: absolute; top: 0; left: 100%; background-color: #f9f9f9; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); margin: 0; padding: 0;">
+                <li><a href="prod/oleo/sl.html">Óleo SL</a></li>
+                <li><a href="prod/oleo/sm.html">Óleo SM</a></li>
+                <li><a href="prod/oleo/sn.html">Óleo SN</a></li>						
+                <li><a href="prod/oleo/sp.html">Óleo SP</a></li>
+            </ul>
+        </li>
+		                    <li><a href="#">Óleo Transmissão</a></li>
+                    <li><a href="#">Fluidos</a></li>
+                    <li><a href="#">Aditivos</a></li>
+                    <li><a href="#">Desengripante</a></li>
+                    <li><a href="#">Outros produtos</a></li>
+        <!-- outros itens -->
+    </ul>
+</li>
+
+            <li><a href="#">Fornecedor</a></li>
+            <li><a href="atendimento">Atendimento</a></li>
+            <li><a href="contato">Contato</a></li>
+        </ul>
+    </div>
+    <!-- JavaScript para controlar a exibição dos submenus -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const hasSubmenuItems = document.querySelectorAll(".has-submenu");
+            hasSubmenuItems.forEach(item => {
+                item.addEventListener("mouseover", function() {
+                    this.querySelector(".sub-menu").style.display = "block";
+                });
+                item.addEventListener("mouseout", function() {
+                    this.querySelector(".sub-menu").style.display = "none";
+                });
+            });
+        });
+    </script>
+</div>
 
 <div class="col-sm-8 col-lg-3 red-bg">
     <div class="checkered-flag">
